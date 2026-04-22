@@ -18,7 +18,7 @@ export default function EstimatedRevenue() {
   }
 
   return (
-    <ChartCard title="Circle Estimated Annual Revenue" subtitle="USDC MCap x Treasury Rate x 50% (net of Coinbase split)">
+    <ChartCard title="Circle Estimated Annual Revenue" subtitle="USDC MCap x Treasury Rate x 50% (net of Coinbase split)" source="DefiLlama + FRED (calculated)">
       {(range: TimeRange) => {
         const filtered = filterByTimeRange(data, range);
         return (

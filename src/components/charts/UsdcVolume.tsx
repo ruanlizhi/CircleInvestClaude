@@ -10,7 +10,7 @@ export default function UsdcVolume() {
   if (loading || !data) return <ChartCard title="USDC Daily Volume">{() => <div className="flex items-center justify-center h-full text-gray-500">Loading...</div>}</ChartCard>;
 
   return (
-    <ChartCard title="USDC Daily Volume" subtitle="24h trading volume">
+    <ChartCard title="USDC Daily Volume" subtitle="24h trading volume" source="CoinGecko">
       {(range: TimeRange) => {
         const filtered = filterByTimeRange(data, range);
         return (

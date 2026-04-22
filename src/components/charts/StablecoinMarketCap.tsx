@@ -10,7 +10,7 @@ export default function StablecoinMarketCap() {
   if (loading || !data) return <ChartCard title="Stablecoin Total Market Cap">{() => <div className="flex items-center justify-center h-full text-gray-500">Loading...</div>}</ChartCard>;
 
   return (
-    <ChartCard title="Stablecoin Total Market Cap" subtitle="All stablecoins combined">
+    <ChartCard title="Stablecoin Total Market Cap" subtitle="All stablecoins combined" source="DefiLlama">
       {(range: TimeRange) => {
         const filtered = filterByTimeRange(data, range);
         return (

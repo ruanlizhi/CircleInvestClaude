@@ -16,7 +16,7 @@ export default function UsdcMarketShare() {
   if (loading || !data) return <ChartCard title="Market Share">{() => <div className="flex items-center justify-center h-full text-gray-500">Loading...</div>}</ChartCard>;
 
   return (
-    <ChartCard title="USDC vs USDT Market Share" subtitle="% of total stablecoin market cap">
+    <ChartCard title="USDC vs USDT Market Share" subtitle="% of total stablecoin market cap" source="DefiLlama">
       {(range: TimeRange) => {
         const filtered = filterByTimeRange(data, range);
         const eventMap = new Map(EVENTS.map(e => [e.date, e.label]));

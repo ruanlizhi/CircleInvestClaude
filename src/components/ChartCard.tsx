@@ -4,12 +4,13 @@ import type { TimeRange } from '../types';
 interface ChartCardProps {
   title: string;
   subtitle?: string;
+  source?: string;
   children: (timeRange: TimeRange) => ReactNode;
 }
 
 const ranges: TimeRange[] = ['1M', '3M', '1Y', 'ALL'];
 
-export default function ChartCard({ title, subtitle, children }: ChartCardProps) {
+export default function ChartCard({ title, subtitle, source, children }: ChartCardProps) {
   const [timeRange, setTimeRange] = useState<TimeRange>('ALL');
 
   return (
@@ -38,6 +39,7 @@ export default function ChartCard({ title, subtitle, children }: ChartCardProps)
       <div className="h-[280px]">
         {children(timeRange)}
       </div>
+      {source && <p className="text-right text-gray-600 text-[10px] mt-1">Source: {source}</p>}
     </div>
   );
 }

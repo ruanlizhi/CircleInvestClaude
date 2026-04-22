@@ -18,7 +18,7 @@ export default function TreasuryRate() {
   }
 
   return (
-    <ChartCard title="US 3-Month Treasury Rate" subtitle="FRED DGS3MO — Circle's revenue driver">
+    <ChartCard title="US 3-Month Treasury Rate" subtitle="FRED DGS3MO — Circle's revenue driver" source="FRED (Federal Reserve)">
       {(range: TimeRange) => {
         const filtered = filterByTimeRange(data, range);
         return (

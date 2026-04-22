@@ -10,7 +10,7 @@ export default function UsdcVsUsdt() {
   if (loading || !data) return <ChartCard title="USDC vs USDT Market Cap">{() => <div className="flex items-center justify-center h-full text-gray-500">Loading...</div>}</ChartCard>;
 
   return (
-    <ChartCard title="USDC vs USDT Market Cap" subtitle="Head-to-head comparison">
+    <ChartCard title="USDC vs USDT Market Cap" subtitle="Head-to-head comparison" source="DefiLlama">
       {(range: TimeRange) => {
         const filtered = filterByTimeRange(data, range);
         return (
