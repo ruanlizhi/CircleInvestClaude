@@ -36,7 +36,7 @@ export default function ChartCard({ title, subtitle, source, children }: ChartCa
           ))}
         </div>
       </div>
-      <div className="h-[280px]">
+      <div className="h-[320px]">
         {children(timeRange)}
       </div>
       {source && <p className="text-right text-gray-600 text-[10px] mt-1">Source: {source}</p>}

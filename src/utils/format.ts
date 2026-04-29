@@ -13,6 +13,30 @@ export function formatRate(value: number): string {
   return `${value.toFixed(2)}%`;
 }
 
+export const dataZoomConfig = [
+  {
+    type: 'slider',
+    start: 0,
+    end: 100,
+    height: 20,
+    bottom: 6,
+    borderColor: '#2a2b35',
+    backgroundColor: '#1a1b23',
+    fillerColor: 'rgba(59,130,246,0.15)',
+    handleStyle: { color: '#3b82f6', borderColor: '#3b82f6' },
+    dataBackground: {
+      lineStyle: { color: '#2a2b35' },
+      areaStyle: { color: '#1f2030' },
+    },
+    selectedDataBackground: {
+      lineStyle: { color: '#3b82f6' },
+      areaStyle: { color: 'rgba(59,130,246,0.1)' },
+    },
+    textStyle: { color: '#6b7280', fontSize: 10 },
+    moveHandleSize: 5,
+  },
+];
+
 export function filterByTimeRange<T extends { date: string }>(
   data: T[],
   range: string

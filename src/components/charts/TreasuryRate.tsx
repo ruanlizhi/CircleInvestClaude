@@ -1,6 +1,6 @@
 import ReactECharts from 'echarts-for-react';
 import { useChartData } from '../../hooks/useChartData';
-import { filterByTimeRange } from '../../utils/format';
+import { filterByTimeRange, dataZoomConfig } from '../../utils/format';
 import ChartCard from '../ChartCard';
 import type { TreasuryRatePoint, TimeRange } from '../../types';
 
@@ -29,7 +29,8 @@ export default function TreasuryRate() {
                 trigger: 'axis',
                 formatter: (params: any) => `${params[0].axisValue}<br/>${params[0].value.toFixed(2)}%`,
               },
-              grid: { top: 10, right: 15, bottom: 30, left: 55 },
+              dataZoom: dataZoomConfig,
+              grid: { top: 10, right: 15, bottom: 55, left: 55 },
               xAxis: { type: 'category', data: filtered.map(d => d.date), axisLabel: { color: '#6b7280' }, axisLine: { lineStyle: { color: '#2a2b35' } } },
               yAxis: { type: 'value', axisLabel: { color: '#6b7280', formatter: '{value}%' }, splitLine: { lineStyle: { color: '#1f2030' } } },
               series: [{

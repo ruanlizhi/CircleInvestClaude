@@ -1,6 +1,6 @@
 import ReactECharts from 'echarts-for-react';
 import { useChartData } from '../../hooks/useChartData';
-import { filterByTimeRange } from '../../utils/format';
+import { filterByTimeRange, dataZoomConfig } from '../../utils/format';
 import ChartCard from '../ChartCard';
 import type { MarketSharePoint, TimeRange } from '../../types';
 
@@ -32,14 +32,15 @@ export default function UsdcMarketShare() {
                   const event = eventMap.get(date);
                   let text = `${date}`;
                   for (const p of params) {
-                    text += `<br/>${p.seriesName}: ${p.value.toFixed(2)}%`;
+                    text += `<br/>${p.marker}${p.seriesName}: ${p.value.toFixed(2)}%`;
                   }
                   if (event) text += `<br/><span style="color:#f59e0b">⚡ ${event}</span>`;
                   return text;
                 },
               },
               legend: { data: ['USDC', 'USDT'], textStyle: { color: '#9ca3af' }, top: 0 },
-              grid: { top: 30, right: 15, bottom: 30, left: 55 },
+              dataZoom: dataZoomConfig,
+              grid: { top: 30, right: 15, bottom: 55, left: 55 },
               xAxis: { type: 'category', data: filtered.map(d => d.date), axisLabel: { color: '#6b7280' }, axisLine: { lineStyle: { color: '#2a2b35' } } },
               yAxis: { type: 'value', axisLabel: { color: '#6b7280', formatter: '{value}%' }, splitLine: { lineStyle: { color: '#1f2030' } } },
               series: [

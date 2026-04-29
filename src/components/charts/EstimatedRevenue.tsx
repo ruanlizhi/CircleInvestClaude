@@ -1,6 +1,6 @@
 import ReactECharts from 'echarts-for-react';
 import { useChartData } from '../../hooks/useChartData';
-import { filterByTimeRange, formatCurrency } from '../../utils/format';
+import { filterByTimeRange, formatCurrency, dataZoomConfig } from '../../utils/format';
 import ChartCard from '../ChartCard';
 import type { RevenuePoint, TimeRange } from '../../types';
 
@@ -29,7 +29,8 @@ export default function EstimatedRevenue() {
                 trigger: 'axis',
                 formatter: (params: any) => `${params[0].axisValue}<br/>${formatCurrency(params[0].value)}`,
               },
-              grid: { top: 10, right: 15, bottom: 30, left: 70 },
+              dataZoom: dataZoomConfig,
+              grid: { top: 10, right: 15, bottom: 55, left: 70 },
               xAxis: { type: 'category', data: filtered.map(d => d.date), axisLabel: { color: '#6b7280' }, axisLine: { lineStyle: { color: '#2a2b35' } } },
               yAxis: { type: 'value', axisLabel: { color: '#6b7280', formatter: (v: number) => formatCurrency(v) }, splitLine: { lineStyle: { color: '#1f2030' } } },
               series: [{
