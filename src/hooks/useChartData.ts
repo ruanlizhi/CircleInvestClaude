@@ -6,7 +6,7 @@ export function useChartData<T>(filename: string): { data: T | null; loading: bo
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch(`/data/${filename}`)
+    fetch(`${import.meta.env.BASE_URL}data/${filename}`)
       .then(res => {
         if (!res.ok) throw new Error(`Failed to load ${filename}`);
         return res.json();
